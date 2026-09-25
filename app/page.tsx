@@ -1,5 +1,14 @@
-import { redirect } from "next/navigation";
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/login',
+        permanent: false, // Gunakan false untuk temporary redirect
+      },
+    ];
+  },
+};
 
-export default function Home() {
-  redirect("/dashboard");
-}
+export default nextConfig;
