@@ -27,9 +27,9 @@ export async function getDashboardSummary(
   // di atas RLS (RLS tetap penjaga utamanya).
   let recentQuery = supabase
     .from("transactions")
-    .select("id, type, amount, category, date, note")
+    .select("id, type, amount, category, transaction_date, transaction_note")
     .eq("user_id", user.id)
-    .order("date", { ascending: false })
+    .order("transaction_date", { ascending: false })
     .order("created_at", { ascending: false })
     .limit(5);
   if (view !== "all") recentQuery = recentQuery.eq("type", view);
