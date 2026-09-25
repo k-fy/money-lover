@@ -14,8 +14,8 @@ export type Transaction = {
   type: TransactionType;
   amount: number;
   category: string;
-  date: string; // YYYY-MM-DD
-  note: string | null;
+  transaction_date: string; // YYYY-MM-DD
+  transaction_note: string | null;
 };
 
 export type DashboardSummary = {
