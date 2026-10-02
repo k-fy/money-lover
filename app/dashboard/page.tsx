@@ -3,6 +3,7 @@ import { getDashboardSummary } from "@/app/lib/actions/dashboard";
 import { getPreferenceCookie } from "@/app/lib/actions/preferences";
 import { RecentTransactions } from "./_components/RecentTransactions";
 import { ThemeToggle } from "./_components/ThemeToggle";
+import { BudgetSection } from "./_components/BudgetSection";
 
 import LogoutButton from '@/components/LogoutButton';
 import { BudgetCard } from "./_components/BudgetCard";
@@ -45,6 +46,8 @@ export default async function DashboardPage() {
       <BudgetCard initialMonth={currentPeriod().month} initialYear={currentPeriod().year} />
 
       <RecentTransactions transactions={summary.recentTransactions} activeView={defaultView} />
+
+      <BudgetSection />
     </main>
   );
 }

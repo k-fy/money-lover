@@ -43,9 +43,9 @@ export function RecentTransactions({ transactions, activeView }: Props) {
                 <div className="min-w-0">
                   <p className="truncate font-medium">{t.category}</p>
                   <p className="truncate text-sm text-muted">
-                    {formatTanggal(t.date)}
-                    {t.note ? `, ${t.note}` : ""}
-                  </p>
+                  {formatTanggal(t.transaction_date)}
+                  {t.transaction_note ? `, ${t.transaction_note}` : ""}
+                </p>
                 </div>
                 <p
                   className={`shrink-0 font-semibold tabular-nums ${isIncome ? "text-income" : "text-expense"}`}
