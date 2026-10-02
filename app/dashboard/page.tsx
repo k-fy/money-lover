@@ -3,14 +3,14 @@ import { getDashboardSummary } from "@/app/lib/actions/dashboard";
 import { getPreferenceCookie } from "@/app/lib/actions/preferences";
 import { RecentTransactions } from "./_components/RecentTransactions";
 import { ThemeToggle } from "./_components/ThemeToggle";
-<<<<<<< HEAD
+
 import LogoutButton from '@/components/LogoutButton';
 import { BudgetCard } from "./_components/BudgetCard";
 import { currentPeriod } from "@/app/lib/budget-types";
 
-=======
+
 import { BalanceSummaryLive } from "./_components/BalanceSummaryLive";
->>>>>>> origin/Dashboard-Transaction-Filter
+
 
 export const metadata = { title: "Dashboard | MoneyLover" };
 
