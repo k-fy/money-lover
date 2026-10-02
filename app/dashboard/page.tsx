@@ -1,14 +1,13 @@
 import { redirect } from "next/navigation";
 import { getDashboardSummary } from "@/app/lib/actions/dashboard";
 import { getPreferenceCookie } from "@/app/lib/actions/preferences";
-import { BalanceSummary } from "./_components/BalanceSummary";
 import { RecentTransactions } from "./_components/RecentTransactions";
 import { ThemeToggle } from "./_components/ThemeToggle";
+import { BalanceSummaryLive } from "./_components/BalanceSummaryLive";
 
 export const metadata = { title: "Dashboard | MoneyLover" };
 
 export default async function DashboardPage() {
-  // Semua dibaca di server (SSR): cookie preferensi + data Supabase.
   const [theme, defaultView] = await Promise.all([
     getPreferenceCookie("theme"),
     getPreferenceCookie("default_view"),
@@ -16,7 +15,6 @@ export default async function DashboardPage() {
 
   const summary = await getDashboardSummary(defaultView);
 
-  // Middleware seharusnya sudah memblokir, ini hanya jaring pengaman.
   if (!summary) redirect("/login");
 
   return (
@@ -29,10 +27,12 @@ export default async function DashboardPage() {
         <ThemeToggle initialTheme={theme} />
       </header>
 
-      <BalanceSummary
-        balance={summary.balance}
-        totalIncome={summary.totalIncome}
-        totalExpense={summary.totalExpense}
+      <BalanceSummaryLive
+        initial={{
+          balance: summary.balance,
+          totalIncome: summary.totalIncome,
+          totalExpense: summary.totalExpense,
+        }}
       />
 
       <RecentTransactions transactions={summary.recentTransactions} activeView={defaultView} />
