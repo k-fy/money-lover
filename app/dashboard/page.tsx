@@ -4,6 +4,7 @@ import { getPreferenceCookie } from "@/app/lib/actions/preferences";
 import { BalanceSummary } from "./_components/BalanceSummary";
 import { RecentTransactions } from "./_components/RecentTransactions";
 import { ThemeToggle } from "./_components/ThemeToggle";
+import { BudgetSection } from "./_components/BudgetSection";
 
 export const metadata = { title: "Dashboard | MoneyLover" };
 
@@ -36,6 +37,8 @@ export default async function DashboardPage() {
       />
 
       <RecentTransactions transactions={summary.recentTransactions} activeView={defaultView} />
+
+      <BudgetSection />
     </main>
   );
 }
