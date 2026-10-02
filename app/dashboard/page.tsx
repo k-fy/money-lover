@@ -4,12 +4,10 @@ import { getPreferenceCookie } from "@/app/lib/actions/preferences";
 import { BalanceSummary } from "./_components/BalanceSummary";
 import { RecentTransactions } from "./_components/RecentTransactions";
 import { ThemeToggle } from "./_components/ThemeToggle";
-<<<<<<< HEAD
 import LogoutButton from '@/components/LogoutButton';
-=======
 import { BudgetCard } from "./_components/BudgetCard";
 import { currentPeriod } from "@/app/lib/budget-types";
->>>>>>> origin/budget-1-silvani
+
 
 export const metadata = { title: "Dashboard | MoneyLover" };
 
