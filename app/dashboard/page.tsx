@@ -4,6 +4,7 @@ import { getPreferenceCookie } from "@/app/lib/actions/preferences";
 import { BalanceSummary } from "./_components/BalanceSummary";
 import { RecentTransactions } from "./_components/RecentTransactions";
 import { ThemeToggle } from "./_components/ThemeToggle";
+import LogoutButton from '@/components/LogoutButton';
 
 export const metadata = { title: "Dashboard | MoneyLover" };
 
@@ -27,6 +28,7 @@ export default async function DashboardPage() {
           <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">{summary.userName}</h1>
         </div>
         <ThemeToggle initialTheme={theme} />
+        <LogoutButton />
       </header>
 
       <BalanceSummary
